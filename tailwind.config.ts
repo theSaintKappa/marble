@@ -17,10 +17,6 @@ const config = {
                 sans: ["var(--font-geist-sans)"],
                 mono: ["var(--font-geist-mono)"],
             },
-            backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-                "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -70,10 +66,16 @@ const config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                "blob-spin": {
+                    from: { rotate: "0deg" },
+                    "50%": { scale: "1 1.5" },
+                    to: { rotate: "360deg" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                "blob-spin": "blob-spin 20s linear infinite",
             },
         },
     },
