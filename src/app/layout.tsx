@@ -22,7 +22,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
             <body>
-                <ThemeProvider attribute="class">{children}</ThemeProvider>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );
