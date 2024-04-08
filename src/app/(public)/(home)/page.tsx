@@ -7,6 +7,7 @@ import Link from "next/link";
 export default function Home() {
     return (
         <main className="h-screen supports-[height:100dvh]:h-dvh flex flex-col justify-center items-center gap-8">
+            <BlobMouseTrail />
             <header className="flex flex-col items-center gap-4 z-10">
                 <h2 className="text-center text-5xl md:text-6xl lg:leading-[1.1] leading-tight tracking-tighter font-bold text-balance">
                     Your thoughts, <span className="bg-gradient-to-r from-purple-500 via-blue-600 to-pink-500 text-transparent bg-clip-text font-extrabold cursor-crosshair">beautifully organized</span>
@@ -15,7 +16,7 @@ export default function Home() {
             </header>
             <div className="flex gap-2 z-10">
                 <Button className="group" asChild>
-                    <Link href="/login">
+                    <Link href="/auth">
                         Start writing in Marble <ArrowUpRight className="h-6 min-w-6 ml-1 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] duration-100" />
                     </Link>
                 </Button>
@@ -25,8 +26,6 @@ export default function Home() {
                     </a>
                 </Button>
             </div>
-            <BlobMouseTrail />
-            <BackgroundBoxPattern />
         </main>
     );
 }

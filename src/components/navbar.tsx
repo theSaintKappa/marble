@@ -25,7 +25,7 @@ export default function Navbar() {
                     </Button>
                     <ThemeModeToggle variant="outline" />
                     <Button asChild>
-                        <Link href="/login">Log In</Link>
+                        <Link href="/auth">Log In</Link>
                     </Button>
                 </div>
                 <Button variant="outline" className="px-2 md:hidden">
