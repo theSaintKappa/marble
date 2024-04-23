@@ -1,7 +1,7 @@
 "use client";
 
-import useMediaQuery from "@/lib/utils/use-media-query";
-import { usePrefersReducedMotion } from "@/lib/utils/use-prefers-reduced-motion";
+import useMediaQuery from "@/hooks/media-query";
+import { usePrefersReducedMotion } from "@/hooks/prefers-reduced-motion";
 import { useRef, useEffect } from "react";
 
 export default function BlobMouseTrail() {

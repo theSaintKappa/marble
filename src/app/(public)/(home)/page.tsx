@@ -1,5 +1,4 @@
 import BlobMouseTrail from "@/components/blob-mouse-trail";
-import BackgroundBoxPattern from "@/components/background-box-pattern";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";

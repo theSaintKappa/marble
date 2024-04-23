@@ -6,6 +6,7 @@ import type { Provider } from "@supabase/supabase-js";
 import { ArrowLeft, Github, Twitter } from "lucide-react";
 import Link from "next/link";
 import OAuthButton from "./oauth-button";
+import { EmailDialog } from "./email-dialog";
 
 export type OAuthProvider = { name: string; provider: Provider; icon: JSX.Element };
 
@@ -13,13 +14,13 @@ const providers: OAuthProvider[] = [
     {
         name: "GitHub",
         provider: "github",
-        icon: <Github className="h-7 min-w-7" />,
+        icon: <Github className="h-6 min-w-6" />,
     },
     {
         name: "Google",
         provider: "google",
         icon: (
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-7 min-w-7">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 min-w-6">
                 <path
                     d="M23 12.769C23 19.3304 18.6316 24 12.1803 24C5.99508 24 1 18.8621 1 12.5C1 6.1379 5.99508 1 12.1803 1C14.8096 1 17.0745 1.86599 18.9063 3.33257C19.3454 3.68414 19.3476 4.33571 18.9476 4.73125L17.3388 6.3223C16.9487 6.70809 16.3245 6.69881 15.879 6.37868C11.7874 3.43897 5.25123 6.42588 5.25123 12.5C5.25123 16.5111 8.36639 19.7617 12.1803 19.7617C15.7539 19.7617 17.5239 17.6345 18.211 15.9241C18.4396 15.3552 17.9747 14.8046 17.3615 14.8046H13.1803C12.628 14.8046 12.1803 14.3569 12.1803 13.8046V11.8492C12.1803 11.2969 12.628 10.8492 13.1803 10.8492H21.9849C22.4703 10.8492 22.8931 11.197 22.9444 11.6797C22.9794 12.0085 23 12.3603 23 12.769Z"
                     stroke="currentColor"
@@ -31,7 +32,7 @@ const providers: OAuthProvider[] = [
     {
         name: "Twitter",
         provider: "twitter",
-        icon: <Twitter className="h-7 min-w-7" />,
+        icon: <Twitter className="h-6 min-w-6" />,
     },
 ];
 
@@ -48,7 +49,7 @@ export default function Page() {
                             </svg>
                             <span className="text-4xl font-extrabold">Marble</span>
                         </CardTitle>
-                        <CardDescription>Your notes will be synced to your account</CardDescription>
+                        <CardDescription className="text-center">Your notes will be synced to your account</CardDescription>
                     </CardHeader>
                     <CardContent className="flex flex-col gap-1 pb-0">
                         {providers.map((provider) => (
@@ -56,9 +57,7 @@ export default function Page() {
                         ))}
                     </CardContent>
                     <Separator className="relative w-3/4 my-6 flex justify-center items-center font-medium text-sm text-slate-400 before:absolute before:content-['or'] before:bg-card before:px-3 before:leading-3" />
-                    <Button variant="link" className="p-0 pb-2 h-fit text-base">
-                        Continue with Email →
-                    </Button>
+                    <EmailDialog />
                 </Card>
             </div>
             <nav className="fixed top-0 w-full flex justify-between p-2">
@@ -70,7 +69,6 @@ export default function Page() {
                 </Button>
                 <ThemeModeToggle variant="outline" />
             </nav>
-            {/* <BackgroundBoxPattern animate={false} /> */}
         </main>
     );
 }
