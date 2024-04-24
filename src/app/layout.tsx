@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils/cn";
 
 export const metadata: Metadata = {
     title: "Marble",
-    description: "A (subjectively) beautiful, modern and genarally superior note-taking app.",
+    description: "A (subjectively) beautiful, modern and generally superior note-taking app.",
 };
 
 export const viewport: Viewport = {

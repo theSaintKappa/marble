@@ -5,16 +5,13 @@ import { Dialog as CnDialog, DialogContent as CnDialogContent, DialogTrigger as 
 import { Drawer as CnDrawer, DrawerContent as CnDrawerContent, DrawerTrigger as CnDrawerTrigger } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useMediaQuery from "@/hooks/media-query";
-import { createBrowserClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils/cn";
-import { zodResolver } from "@hookform/resolvers/zod";
-import type { AuthError, AuthResponse, User } from "@supabase/supabase-js";
 import { useEffect, useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { SignInForm } from "./sign-in-form";
 import { useFormStatus } from "react-dom";
 import { SignUpForm } from "./sign-up-form";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { ArrowBigRightDash, ArrowUpRight, CornerRightUp, Mails } from "lucide-react";
 
 export interface JohnDoeApiRespone {
     first: string;
@@ -45,9 +42,18 @@ export function EmailDialog() {
     return (
         <DialogType open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant="link" className="p-0 pb-2 h-fit text-base">
-                    Continue with Email →
-                </Button>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button variant="ghost" onClick={() => setOpen(true)}>
+                                Continue with Email <ArrowBigRightDash className="ml-2" strokeWidth={1.5} />
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Sign in using an email and password</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </DialogTrigger>
             <DialogContent className="p-0">
                 <EmailForm isDesktop={isDesktop} johnDoe={johnDoe} />

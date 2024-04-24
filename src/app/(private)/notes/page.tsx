@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 export default async function Page() {
     const supabase = createServerClient();
     const { data, error } = await supabase.auth.getUser();
-    if (error || !data?.user) redirect("/");
+    if (error || !data?.user) redirect("/auth");
 
     return <p>Hello {data.user.email}</p>;
 }

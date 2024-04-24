@@ -73,14 +73,14 @@ const config = {
                 },
                 "background-pan": {
                     from: { backgroundPosition: "center 0" },
-                    to: { backgroundPosition: "center 24.5%" },
+                    to: { backgroundPosition: "center 120%" },
                 },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "blob-spin": "blob-spin 20s ease infinite",
-                "background-pan": "background-pan 16s linear infinite",
+                "background-pan": "background-pan 60s linear infinite",
             },
         },
     },

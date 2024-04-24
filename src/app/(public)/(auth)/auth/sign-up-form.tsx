@@ -36,7 +36,7 @@ export function SignUpForm({ johnDoe }: { johnDoe: JohnDoeApiRespone }) {
     async function handleAuth({ email, password, username }: z.infer<typeof FormSchema>) {
         setLoading(true);
         setAuthResponse(null);
-        await supabase.auth.signUp({ email, password, options: { data: { username } } }).then((res) => setAuthResponse(res));
+        await supabase.auth.signUp({ email, password, options: { data: { username }, emailRedirectTo: location.origin } }).then((res) => setAuthResponse(res));
         setLoading(false);
     }
 

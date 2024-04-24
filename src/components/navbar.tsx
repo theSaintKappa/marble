@@ -11,7 +11,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className={cn("z-10 w-full px-6", pathname === "/" && "fixed")}>
+        <nav className={cn("z-10 w-full px-6 sticky top-0", pathname === "/" && "fixed")}>
             <div className="container flex items-center justify-between p-6 border-2 border-dashed border-primary border-t-0 rounded-b-2xl bg-background">
                 <Link href="/" className="flex items-center gap-2">
                     <svg className="h-8 w-8" width="128" height="128" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

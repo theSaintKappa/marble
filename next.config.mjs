@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    exportPathMap: () => {
-        return {
-            "/login": { page: "/auth" },
-            "/signup": { page: "/auth" },
-        };
+    async redirects() {
+        return [
+            {
+                source: "/login",
+                destination: "/auth",
+                permanent: true,
+            },
+            {
+                source: "/signin",
+                destination: "/auth",
+                permanent: true,
+            },
+            {
+                source: "/signup",
+                destination: "/auth",
+                permanent: true,
+            },
+        ];
     },
 };
 

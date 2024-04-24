@@ -1,17 +1,23 @@
-import BlobMouseTrail from "@/components/blob-mouse-trail";
 import { Button } from "@/components/ui/button";
+import { createServerClient } from "@/lib/supabase/server";
 import { ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+    const supabase = createServerClient();
+    const { data, error } = await supabase.auth.getUser();
+    if (!error && data.user) redirect("/notes");
+
     return (
-        <main className="h-screen supports-[height:100dvh]:h-dvh flex flex-col justify-center items-center gap-8">
-            <BlobMouseTrail />
+        <main className="h-supports-dvh flex flex-col justify-center items-center gap-8">
             <header className="flex flex-col items-center gap-4 z-10">
-                <h2 className="text-center text-5xl md:text-6xl lg:leading-[1.1] leading-tight tracking-tighter font-bold text-balance">
-                    Your thoughts, <span className="bg-gradient-to-r from-purple-500 via-blue-600 to-pink-500 text-transparent bg-clip-text font-extrabold cursor-crosshair">beautifully organized</span>
+                <h2 className="text-center text-4xl sm:text-5xl md:text-7xl lg:leading-[1.1] leading-tight tracking-tighter font-bold text-balance">
+                    Your thoughts, <span className="bg-gradient-to-l from-purple-500 via-blue-600 to-pink-500 text-transparent bg-clip-text font-extrabold">beautifully organized</span>
                 </h2>
-                <p className="text-center text-lg md:text-xl text-muted-foreground text-balance">Marble streamlines your ideas using markdown. Experience clarity and focus like never before.</p>
+                <p className="text-center text-lg md:text-2xl text-muted-foreground text-balance">
+                    Marble is a <span className="italic text-base">(subjectively)</span> <span className="font-semibold">beautiful</span>, <span className="font-semibold">modern</span> and generally <span className="font-semibold">superior</span> note-taking app.
+                </p>
             </header>
             <div className="flex gap-2 z-10">
                 <Button className="group" asChild>
